@@ -15,8 +15,8 @@ public class User {
     private boolean married;
     private Date userRegistrationDate;
     private double creditScore;
-    User() {}
-    User(String name, String address, String nationality, long identityCard, String phoneNumber, String occupation, LocalDate birthdate, String gender, boolean married) {
+    public User() {}
+    public User(String name, String address, String nationality, long identityCard, String phoneNumber, String occupation, LocalDate birthdate, String gender, boolean married) {
         this.name = name;
         this.address = address;
         this.userId = UUID.randomUUID().toString();
@@ -30,19 +30,19 @@ public class User {
         this.userRegistrationDate = new Date();
         this.creditScore = 30;
     }
-    void updateAddress(String newAddress) {
+    public void updateAddress(String newAddress) {
         this.address = newAddress;
     }
-    void updateOccupation(String newOccupation) {
+    public void updateOccupation(String newOccupation) {
         this.occupation = newOccupation;
     }
-    void updatePhoneNumber(String newPhoneNumber) {
+    public void updatePhoneNumber(String newPhoneNumber) {
         this.phoneNumber = newPhoneNumber;
     }
-    void updateMaritalStatus(boolean married) {
+    public void updateMaritalStatus(boolean married) {
         this.married = married;
     }
-    void updateCreditScore(double newCreditScore) {
+    public void updateCreditScore(double newCreditScore) {
         this.creditScore = newCreditScore;
     }
 }
