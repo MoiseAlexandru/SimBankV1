@@ -14,6 +14,18 @@ public class Account {
         this.accountCreationDate = new Date();
         balance = 0;
     }
+    double getBalance() {
+        return balance;
+    }
+    String getOwnerId() {
+        return ownerId;
+    }
+    String getAccountId() {
+        return IBAN;
+    }
+    boolean getActiveStatus() {
+        return activeStatus;
+    }
     void updateAccountStatus(boolean newActiveStatus) {
         this.activeStatus = newActiveStatus;
     }
