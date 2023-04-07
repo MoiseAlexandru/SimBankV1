@@ -2,16 +2,15 @@ public class CheckingAccount extends Account {
     private int minBalanceAlert;
     private int dailyWithdrawLimit;
     private double monthlyMaintenanceFee;
-    private String ownerId;
     public CheckingAccount() {
         this.minBalanceAlert = 0;
         this.dailyWithdrawLimit = 1000;
     }
-    public CheckingAccount(String IBAN, String userId, int minBalanceAlert, int withdrawDailyLimit) {
+    public CheckingAccount(String IBAN, String userId) {
         super(IBAN, userId);
-        this.minBalanceAlert = minBalanceAlert;
-        this.dailyWithdrawLimit = withdrawDailyLimit;
-        this.ownerId = userId;
+        this.minBalanceAlert = 0;
+        this.dailyWithdrawLimit = 1000;
+        this.monthlyMaintenanceFee = 1;
     }
     public void updateMinBalanceAlert(int newMinBalanceAlert) {
         this.minBalanceAlert = newMinBalanceAlert;
