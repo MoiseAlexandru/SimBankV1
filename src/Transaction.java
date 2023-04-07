@@ -2,22 +2,24 @@ import java.util.Date;
 import java.util.UUID;
 
 public class Transaction {
-    String transactionId;
-    String senderAccount;
-    String receiverAccount;
-    double amount;
-    Date transactionDate;
-    String description;
-    int transactionType;
+    private String transactionId;
+    private String senderAccount;
+    private String receiverAccount;
+    private double amount;
+    private Date transactionDate;
+    private String description;
+    private int transactionType;
     // Tip 1: retragere bani
     // Tip 2: alimenentare cont
     // Tip 3: intre doua conturi
-    Transaction() {}
-    Transaction(int type, double amount, String account) {
+    private String status; // pending, completed, failed, canceled
+    public Transaction() {}
+    public Transaction(int type, double amount, String account) {
         this.transactionId = UUID.randomUUID().toString();
         this.transactionDate = new Date();
         this.amount = amount;
         this.transactionType = type;
+        this.status = "Pending";
         if(type == 1) {
             this.description = "Retragere din cont";
             this.senderAccount = account;
@@ -29,7 +31,7 @@ public class Transaction {
             this.description = "Alimentare cont";
         }
     }
-    Transaction(double amount, String senderId, String receiverId, String description) {
+    public Transaction(double amount, String senderId, String receiverId, String description) {
         this.transactionId = UUID.randomUUID().toString();
         this.transactionDate = new Date();
         this.senderAccount = senderId;
@@ -37,5 +39,12 @@ public class Transaction {
         this.amount = amount;
         this.transactionType = 3;
         this.description = description;
+        this.status = "Pending";
+    }
+    public String getStatus() {
+        return this.status;
+    }
+    public void updateStatus(String newStatus) {
+        this.status = newStatus;
     }
 }
