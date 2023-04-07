@@ -9,6 +9,11 @@ public class Card {
     private LocalDate cardExpirationDate;
     private boolean cardActivationStatus;
     public Card() {}
+    public Card(String ownerId, String cardNumber, int CVV) {
+        this.cardNumber = cardNumber;
+        this.ownerId = ownerId;
+        this.CVV = CVV;
+    }
     public void activateCard() {
         this.cardActivationStatus = true;
     }
