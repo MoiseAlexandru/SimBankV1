@@ -8,7 +8,6 @@ public class BusinessProfile extends User {
     private String industry;
     private int companySizeMin;
     private int companySizeMax;
-
     public BusinessProfile() {}
     public BusinessProfile(String name, String address, String contactPerson, String contactPhone, String industry, int companySizeMin, int companySizeMax) {
         super(name, address);

@@ -7,8 +7,8 @@ public class Account {
     protected boolean activeStatus;
     protected String ownerId;
     public Account() {}
-    public Account(String IBAN, String ownerId) {
-        this.IBAN = IBAN;
+    public Account(String ownerId) {
+        this.IBAN = Utils.generateRandomIBAN();
         this.ownerId = ownerId;
         this.activeStatus = false;
         this.accountCreationDate = new Date();

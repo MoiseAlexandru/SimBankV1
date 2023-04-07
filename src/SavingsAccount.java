@@ -5,8 +5,8 @@ public class SavingsAccount extends Account{
         maxWithdawals = 2;
         interestRate = 10;
     };
-    public SavingsAccount(String IBAN, String ownerId, int maxWithdawals, int interestRate) {
-        super(IBAN, ownerId);
+    public SavingsAccount(String ownerId, int maxWithdawals, int interestRate) {
+        super(ownerId);
         this.maxWithdawals = maxWithdawals;
         this.interestRate = interestRate;
     }

@@ -9,13 +9,16 @@ public class Card {
     private LocalDate cardExpirationDate;
     private boolean cardActivationStatus;
     public Card() {}
-    public Card(String cardNumber, int CVV, String ownerId) {
-        this.cardNumber = cardNumber;
-        this.CVV = CVV;
+    public Card(String ownerId) {
+        this.cardNumber = Utils.generateRandomCardNumber();
+        this.CVV = CVV = Utils.generateRandomCVV();
         this.ownerId = ownerId;
         this.cardCreationDate = LocalDate.now();
         this.cardExpirationDate = cardExpirationDate.plusYears(5);
         this.cardActivationStatus = false;
+    }
+    public String getCardNumber() {
+        return cardNumber;
     }
     public void activateCard() {
         this.cardActivationStatus = true;

@@ -15,14 +15,14 @@ public class UserRepository {
     }
     public User getUserById(String userId) {
         for(User user : DataStorage.Users) {
-            if(user.userId == userId)
+            if(user.getUserId() == userId)
                 return user;
         }
         return null;
     }
     public User getUserByName(String name) {
         for(User user : DataStorage.Users) {
-            if(user.name == name)
+            if(user.getName() == name)
                 return user;
         }
         return null;

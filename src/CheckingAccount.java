@@ -6,8 +6,8 @@ public class CheckingAccount extends Account {
         this.minBalanceAlert = 0;
         this.dailyWithdrawLimit = 1000;
     }
-    public CheckingAccount(String IBAN, String userId) {
-        super(IBAN, userId);
+    public CheckingAccount(String userId) {
+        super(userId);
         this.minBalanceAlert = 0;
         this.dailyWithdrawLimit = 1000;
         this.monthlyMaintenanceFee = 1;

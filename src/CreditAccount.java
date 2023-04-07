@@ -4,8 +4,8 @@ public class CreditAccount extends Account {
     private double interestRate; // interest per year
     private int duration; // duration of the loan
     public CreditAccount() {}
-    public CreditAccount(String IBAN, String userId, int loan, double maxCreditGain, double interestRate, int duration) {
-        super(IBAN, userId);
+    public CreditAccount(String userId, int loan, double maxCreditGain, double interestRate, int duration) {
+        super(userId);
         this.loanAmount = loan;
         this.maxCreditGain = maxCreditGain;
         this.interestRate = interestRate;

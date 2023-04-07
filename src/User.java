@@ -17,4 +17,10 @@ public class User {
     public void updateAddress(String newAddress) {
         this.address = newAddress;
     }
+    public String getUserId() {
+        return userId;
+    }
+    public String getName() {
+        return name;
+    }
 }
