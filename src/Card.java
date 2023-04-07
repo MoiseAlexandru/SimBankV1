@@ -29,7 +29,7 @@ public class Card {
             return true;
         return false;
     }
-    public boolean validCVV(int enteredCVV) {
+    public boolean validateCVV(int enteredCVV) {
         if(enteredCVV != this.CVV)
             return false;
         return true;

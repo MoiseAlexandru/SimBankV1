@@ -17,5 +17,7 @@ public class Account {
     void updateAccountStatus(boolean newActiveStatus) {
         this.activeStatus = newActiveStatus;
     }
-    
+    void updateBalance(double newBalance) {
+        this.balance = newBalance;
+    }
 }
