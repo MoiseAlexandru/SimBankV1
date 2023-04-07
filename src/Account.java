@@ -6,30 +6,30 @@ public class Account {
     protected Date accountCreationDate;
     protected boolean activeStatus;
     protected String ownerId;
-    Account() {}
-    Account(String IBAN, String ownerId) {
+    public Account() {}
+    public Account(String IBAN, String ownerId) {
         this.IBAN = IBAN;
         this.ownerId = ownerId;
         this.activeStatus = false;
         this.accountCreationDate = new Date();
         balance = 0;
     }
-    double getBalance() {
+    public double getBalance() {
         return balance;
     }
-    String getOwnerId() {
+    public String getOwnerId() {
         return ownerId;
     }
-    String getAccountId() {
+    public String getAccountId() {
         return IBAN;
     }
-    boolean getActiveStatus() {
+    public boolean getActiveStatus() {
         return activeStatus;
     }
-    void updateAccountStatus(boolean newActiveStatus) {
+    public void updateAccountStatus(boolean newActiveStatus) {
         this.activeStatus = newActiveStatus;
     }
-    void updateBalance(double newBalance) {
+    public void updateBalance(double newBalance) {
         this.balance = newBalance;
     }
 }

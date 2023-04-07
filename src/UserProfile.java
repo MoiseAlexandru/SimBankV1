@@ -13,10 +13,7 @@ public class UserProfile extends User {
     private double creditScore;
 
     public UserProfile(String name, String address, String nationality, long identityCard, String phoneNumber, String occupation, LocalDate birthdate, String gender, boolean married) {
-        this.name = name;
-        this.address = address;
-        this.userId = UUID.randomUUID().toString();
-        this.userRegistrationDate = new Date();
+        super(name, address);
         this.nationality = nationality;
         this.identityCard = identityCard;
         this.phoneNumber = phoneNumber;
