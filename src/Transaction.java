@@ -44,6 +44,21 @@ public class Transaction {
     public String getStatus() {
         return this.status;
     }
+    public String getTransactionId() {
+        return this.transactionId;
+    }
+    public int getType() {
+        return transactionType;
+    }
+    public String getSenderId() {
+        return senderAccount;
+    }
+    public String getReceiverId() {
+        return receiverAccount;
+    }
+    public double getAmount() {
+        return amount;
+    }
     public void updateStatus(String newStatus) {
         this.status = newStatus;
     }

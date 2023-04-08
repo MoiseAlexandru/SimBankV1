@@ -3,7 +3,7 @@ import javax.xml.crypto.Data;
 public class CardRepository {
     public Card findCardById(String cardId) {
         for(Card card : DataStorage.Cards)
-            if(card.getCardNumber() == cardId)
+            if(card.getCardNumber().equals(cardId))
                 return card;
         return null;
     }
