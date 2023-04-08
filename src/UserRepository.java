@@ -28,9 +28,10 @@ public class UserRepository {
         return null;
     }
     public void addUser(User user) throws IllegalArgumentException {
-        if(getUserById(user.userId) != null) {
+        if(getUserById(user.getUserId()) != null) {
             throw new IllegalArgumentException("Error in addUser of UserRepository class: User already exists in the database!");
         }
+        DataStorage.Clients.put(user.getUserId(), user.getName());
         DataStorage.Users.add(user);
     }
 }
