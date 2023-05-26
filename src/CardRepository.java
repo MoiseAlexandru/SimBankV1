@@ -4,9 +4,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 
 public class CardRepository {
-    public Card findCardById(String cardNumber) {
+    public static Card findCardById(String cardNumber) {
         try {
             String sql = "SELECT * FROM CARD WHERE cardNumber = ?";
             PreparedStatement statement = DatabaseConnection.connection.prepareStatement(sql);
@@ -30,7 +31,7 @@ public class CardRepository {
         }
         return null;
     }
-    public void addCard(Card card) throws IllegalArgumentException {
+    public static void addCard(Card card) throws IllegalArgumentException {
         if(findCardById(card.getCardNumber()) != null) {
             System.out.println("Card already exists in the database");
             throw new IllegalArgumentException();
@@ -51,7 +52,7 @@ public class CardRepository {
         }
         System.out.println("Card with id " + card.getCardNumber() + " added successfully");
     }
-    public void deleteCard(Card card) throws IllegalArgumentException {
+    public static void deleteCard(Card card) throws IllegalArgumentException {
         if(findCardById(card.getCardNumber()) == null) {
             System.out.println("Card does not exist in the database.");
             throw new IllegalArgumentException();
@@ -67,7 +68,7 @@ public class CardRepository {
         }
         System.out.println("Card with id " + card.getCardNumber() + " deleted successfully");
     }
-    public void updateCard(Card card) throws IllegalArgumentException {
+    public static void updateCard(Card card) throws IllegalArgumentException {
         if(findCardById(card.getCardNumber()) == null) {
             System.out.println("Card does not exist in the database.");
             throw new IllegalArgumentException();
@@ -86,6 +87,27 @@ public class CardRepository {
             statement.setString(5, card.getCardNumber());
             statement.executeUpdate();
             System.out.println("Card with id " + card.getCardNumber() + " updated successfully");
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void getAllCards() {
+        try {
+            List<Card> cardList;
+            String sql = "SELECT * FROM CARD";
+            PreparedStatement statement = DatabaseConnection.connection.prepareStatement(sql);
+            ResultSet result = statement.executeQuery();
+            while(result.next()) {
+                String cardNumber = result.getString("cardNumber");
+                int CVV = result.getInt("CVV");
+                String ownerId = result.getString("ownerId");
+                LocalDate cardCreationDate = result.getDate("cardCreationDate").toLocalDate();
+                LocalDate cardExpirationDate = result.getDate("cardExpirationDate").toLocalDate();
+                boolean cardActivationStatus = result.getBoolean("cardActivationStatus");
+                Card returnedCard = new Card(cardNumber, CVV, ownerId, cardCreationDate, cardActivationStatus);
+                returnedCard.display();
+            }
         }
         catch(Exception e) {
             e.printStackTrace();

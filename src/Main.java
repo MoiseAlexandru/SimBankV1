@@ -11,5 +11,7 @@ public class Main {
             System.out.println("Connection to database failed");
             return;
         }
+        Menu menu = new Menu();
+        menu.displayIntro();
     }
 }

@@ -59,4 +59,7 @@ public class Card {
             return false;
         return true;
     }
+    public void display() {
+        System.out.println("card number: " + cardNumber + ", CVV: " + Integer.toString(CVV) + ", ownerId: " + ownerId + ", cardCreationDate: " + cardCreationDate + ", cardExpirationDate: " + cardExpirationDate + ", cardActivationStatus: " + cardActivationStatus);
+    }
 }
