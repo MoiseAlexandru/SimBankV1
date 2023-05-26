@@ -1,7 +1,7 @@
 import java.util.Date;
 import java.util.UUID;
 
-public class Transaction {
+public class    Transaction {
     private String transactionId;
     private String senderAccount;
     private String receiverAccount;

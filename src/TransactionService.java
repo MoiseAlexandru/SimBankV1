@@ -2,7 +2,7 @@
 public class TransactionService {
     TransactionRepository transactionRepository;
     AccountRepository accountRepository;
-    public void createTransaction(int type, double amount, String accountId) throws IllegalArgumentException, InsufficientFundsException {
+    public void createTransaction(int type, double amount, String accountId) throws IllegalArgumentException {
         Transaction transaction = new Transaction(type, amount, accountId);
         transactionRepository.addTransaction(transaction);
         String transactionId = transaction.getTransactionId();
