@@ -41,6 +41,17 @@ public class    Transaction {
         this.description = description;
         this.status = "Pending";
     }
+    public Transaction(String transactionId, String senderAccount, String receiverAccount, double amount, Date transactionDate, String description, int transactionType, String status)
+    {
+        this.transactionId = transactionId;
+        this.senderAccount = senderAccount;
+        this.receiverAccount = receiverAccount;
+        this.amount = amount;
+        this.transactionDate = transactionDate;
+        this.description = description;
+        this.transactionType = transactionType;
+        this.status = status;
+    }
     public String getStatus() {
         return this.status;
     }
@@ -58,6 +69,12 @@ public class    Transaction {
     }
     public double getAmount() {
         return amount;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public Date getTransactionDate() {
+        return transactionDate;
     }
     public void updateStatus(String newStatus) {
         this.status = newStatus;
