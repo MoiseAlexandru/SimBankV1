@@ -79,4 +79,7 @@ public class    Transaction {
     public void updateStatus(String newStatus) {
         this.status = newStatus;
     }
+    public void displayTransaction() {
+        System.out.println("transactionId: " + transactionId + ", senderAccount: " + senderAccount + ", receiverAccount: " + receiverAccount + ", amount: " + amount + ", transactionDate: " + transactionDate + ", description: " + description + ", transactionType: " + Integer.toString(transactionType) + ", status: " + status);
+    }
 }

@@ -34,4 +34,9 @@ public class UserRepository {
         DataStorage.Clients.put(user.getUserId(), user.getName());
         DataStorage.Users.add(user);
     }
+    public void showAllUsers() {
+        for(User user : DataStorage.Users) {
+            user.displayUser();
+        }
+    }
 }

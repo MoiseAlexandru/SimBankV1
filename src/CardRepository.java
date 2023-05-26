@@ -13,6 +13,7 @@ public class CardRepository {
             PreparedStatement statement = DatabaseConnection.connection.prepareStatement(sql);
             statement.setString(1, cardNumber);
             ResultSet result = statement.executeQuery();
+            DataStorage.dbRequests.add(new DbRequest("find card with number " + cardNumber, new java.util.Date()));
             if(result.next()) {
                 int CVV = result.getInt("CVV");
                 String ownerId = result.getString("ownerId");
@@ -46,11 +47,12 @@ public class CardRepository {
             statement.setDate(5, Date.valueOf(card.getCardExpirationDate()));
             statement.setBoolean(6, card.getCardActivationStatus());
             statement.executeUpdate();
+            DataStorage.dbRequests.add(new DbRequest("add card with number " + card.getCardNumber(), new java.util.Date()));
+            System.out.println("Card with id " + card.getCardNumber() + " added successfully");
         }
         catch(Exception e) {
             e.printStackTrace();
         }
-        System.out.println("Card with id " + card.getCardNumber() + " added successfully");
     }
     public static void deleteCard(Card card) throws IllegalArgumentException {
         if(findCardById(card.getCardNumber()) == null) {
@@ -62,11 +64,12 @@ public class CardRepository {
             PreparedStatement statement = DatabaseConnection.connection.prepareStatement(sql);
             statement.setString(1, card.getCardNumber());
             statement.executeUpdate();
+            DataStorage.dbRequests.add(new DbRequest("delete card with number " + card.getCardNumber(), new java.util.Date()));
+            System.out.println("Card with id " + card.getCardNumber() + " deleted successfully");
         }
         catch(Exception e) {
             e.printStackTrace();
         }
-        System.out.println("Card with id " + card.getCardNumber() + " deleted successfully");
     }
     public static void updateCard(Card card) throws IllegalArgumentException {
         if(findCardById(card.getCardNumber()) == null) {
@@ -86,7 +89,7 @@ public class CardRepository {
             statement.setBoolean(4, newCardActivationStatus);
             statement.setString(5, card.getCardNumber());
             statement.executeUpdate();
-            System.out.println("Card with id " + card.getCardNumber() + " updated successfully");
+            DataStorage.dbRequests.add(new DbRequest("update card with number " + card.getCardNumber(), new java.util.Date()));
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -97,6 +100,7 @@ public class CardRepository {
             List<Card> cardList;
             String sql = "SELECT * FROM CARD";
             PreparedStatement statement = DatabaseConnection.connection.prepareStatement(sql);
+            DataStorage.dbRequests.add(new DbRequest("display all cards", new java.util.Date()));
             ResultSet result = statement.executeQuery();
             while(result.next()) {
                 String cardNumber = result.getString("cardNumber");

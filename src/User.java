@@ -23,4 +23,7 @@ public class User {
     public String getName() {
         return name;
     }
+    public void displayUser() {
+        System.out.println("name: " + name + ", address: " + address + ", userId: " + userId + ", userRegistrationDate: " + userRegistrationDate);
+    }
 }

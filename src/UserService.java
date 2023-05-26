@@ -2,12 +2,8 @@ import java.time.LocalDate;
 
 public class UserService {
     private final UserRepository userRepository;
-    private final CardRepository cardRepository;
-    private final AccountRepository accountRepository;
-    public UserService(UserRepository userRepository, CardRepository cardRepository, AccountRepository accountRepository) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.cardRepository = cardRepository;
-        this.accountRepository = accountRepository;
     }
     public void createUser(User user) {
         try {
@@ -28,8 +24,8 @@ public class UserService {
             userRepository.addUser(user);
             CheckingAccount firstAccount = new CheckingAccount(user.userId);
             Card card = new Card(user.userId);
-            accountRepository.addAccount(firstAccount);
-            cardRepository.addCard(card);
+            AccountRepository.addAccount(firstAccount);
+            CardRepository.addCard(card);
         }
         catch(Exception err) {
             throw new IllegalArgumentException("Error in function createUser of userRepository", err);
@@ -50,5 +46,8 @@ public class UserService {
         catch(Exception err) {
             throw new IllegalArgumentException("Error in function deleteUserByName of class UserService", err);
         }
+    }
+    public void showAllUsers() {
+        userRepository.showAllUsers();
     }
 }

@@ -15,8 +15,8 @@ public class CheckingAccount extends Account {
     public void updateMinBalanceAlert(int newMinBalanceAlert) {
         this.minBalanceAlert = newMinBalanceAlert;
     }
-    public void updateDailyWithdrawLimit(int newDailyWithdrwawLimit) {
-        this.dailyWithdrawLimit = newDailyWithdrwawLimit;
+    public void updateDailyWithdrawLimit(int newDailyWithdrawLimit) {
+        this.dailyWithdrawLimit = newDailyWithdrawLimit;
     }
     public int getMinBalanceAlert() {
         return this.getMinBalanceAlert();

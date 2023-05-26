@@ -10,7 +10,7 @@ public class Account {
     public Account(String ownerId) {
         this.IBAN = Utils.generateRandomIBAN();
         this.ownerId = ownerId;
-        this.activeStatus = false;
+        this.activeStatus = true;
         this.accountCreationDate = new Date();
         balance = 0;
     }
@@ -31,5 +31,8 @@ public class Account {
     }
     public void updateBalance(double newBalance) {
         this.balance = newBalance;
+    }
+    public void displayAccount() {
+        System.out.println("IBAN: " + IBAN + ", balance: " + balance + ", " + "accountCreationDate: " + accountCreationDate + ", activeStatus: " + activeStatus + ", ownerId: " + ownerId);
     }
 }

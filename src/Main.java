@@ -11,7 +11,16 @@ public class Main {
             System.out.println("Connection to database failed");
             return;
         }
+
         Menu menu = new Menu();
         menu.displayIntro();
+
+        CSVFileWriter csvFileWriter = new CSVFileWriter("./data/dbrequests.csv");
+        String[] headers = {"action_name", "timestamp"};
+        csvFileWriter.writeHeaders(headers);
+        if(DataStorage.dbRequests != null) {
+            for (DbRequest dbRequest : DataStorage.dbRequests)
+                csvFileWriter.writeData(dbRequest);
+        }
     }
 }
